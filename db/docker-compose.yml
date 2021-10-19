@@ -1,0 +1,42 @@
+version: "3"
+
+services:
+    # PostgreSQL database
+  database:
+    image: postgres:alpine
+    container_name: database
+    restart: unless-stopped
+    env_file:
+      - pg.env
+    volumes: 
+      - postgresql:/var/lib/postgresql/data
+    logging:
+      options:
+        tag: "{{.Name}}"
+
+  database-admin:
+    image: dpage/pgadmin4:latest
+    container_name: database-admin
+    restart: unless-stopped
+    env_file:
+      - pgadmin.env
+    environment:
+      VIRTUAL_HOST: db.bdura.me
+      LETSENCRYPT_HOST: db.bdura.me
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+    depends_on:
+      - database
+    logging:
+      options:
+        tag: "{{.Name}}"
+
+
+networks:
+  default:
+    external:
+      name: nginx
+
+volumes:
+  postgresql:
+  pgadmin:
