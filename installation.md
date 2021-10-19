@@ -9,9 +9,11 @@ Content :
 - [Configuration](#configuration)
   - [Install Zsh](#install-zsh)
   - [Install oh-my-zsh](#install-oh-my-zsh)
+  - [Install Fira-Code](#install-fira-code)
   - [Install spaceship-prompt](#install-spaceship-prompt)
   - [Install micro](#install-micro)
   - [Configure Zsh](#configure-zsh)
+- [Generate a SSH key](#generate-a-ssh-key)
 - [Docker](#docker)
 
 ## Creating a bootable USB
@@ -26,10 +28,11 @@ Make sure to enable ssh ! On the bootable medium :
 touch ssh
 ```
 
-Set up the wifi :
+Set up the wifi (you can skip this step if you intend to connect your Raspberry with ethernet) :
 
-```
+```yaml
 wifis:
+  # Wifi configuration, here with dynamic IP
   wlan0:
     dhcp4: true
     optional: true
@@ -71,6 +74,12 @@ Zsh is an alternative to Bash, and provides a myriad of bonuses. Follow the [ins
 
 oh-my-zsh is a package manager for Zsh. It can help you customize your shell with incredibly useful perks. Follow the [instructions](https://github.com/ohmyzsh/ohmyzsh#basic-installation).
 
+### Install Fira-Code
+
+Fira-Code is a coding font that works great with ligatures and special characters.
+
+Follow the [instructions](https://github.com/tonsky/FiraCode/wiki/Linux-instructions#installing-with-a-package-manager).
+
 ### Install spaceship-prompt
 
 There are other prompts out there, but Spaceship is a good way to start. Follow the [instructions](https://github.com/spaceship-prompt/spaceship-prompt#oh-my-zsh).
@@ -104,7 +113,35 @@ Modify you `.zshrc` to configure your new shell.
 
 You may use this [configuration](./.zshrc). You'll need to install `zsh-syntax-highlighting` if you do (see [instructions](https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md#oh-my-zsh)).
 
+## Generate a SSH key
+
+See the [instructions from Github](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
+
+```shell
+ssh-keygen -t ed25519 -C "your_email@example.com"
+```
+
+Display your public kwy with :
+
+```ssh
+cat .ssh/id_ed25519.pub
+```
+
+This will be useful to add to your Github account, for example.
+
 ## Docker
 
 See [instructions](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository).
-And the [other instructions](https://docs.docker.com/engine/install/linux-postinstall/)
+And the [other instructions](https://docs.docker.com/engine/install/linux-postinstall/), to enable `docker` without `sudo`.
+
+Then, install `docker-compose` through `pip` :
+
+```shell
+pip install docker-compose
+```
+
+You may need to reinstall Python :
+
+```shell
+sudo apt install python3-pip
+```
