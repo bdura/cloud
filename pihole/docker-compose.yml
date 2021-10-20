@@ -1,0 +1,59 @@
+#This is based on http://tonylawrence.com/posts/unix/synology/free-your-synology-ports/
+version: '2'
+
+services:
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    hostname: pihole                       # <-- container's hostname
+    domainname: bdura.me                   # <-- domain name of your pihole container
+    group_add:
+      - www-data
+    mac_address: 56:90:39:d1:89:65         # <-- replace with a random mac address,
+
+    # The above should be something like e2:09:0e:d4:40:66. This is NOT the physical server.
+    # You can use this site to generate a random mac address(pick top number): https://www.hellion.org.uk/cgi-bin/randmac.pl?scope=local&type=unicast
+   
+    cap_add:
+      - NET_ADMIN
+    networks:
+      pihole_network:
+        ipv4_address: 192.168.0.210         # <-- Replace with an unused ip address on your network to assign to the Pi0hole instance (not ip address of the physical server)
+    dns:
+      - 127.0.0.1
+      - 1.1.1.1      #<-- Replace as secondary DNS - can change to whatever you want, this is Cloudflare
+      - 8.8.8.8      #<-- Replace
+
+    ports:
+      - 443/tcp
+      - 53/tcp
+      - 53/udp
+      - 67/udp
+      - 80/tcp
+    environment:
+      ServerIP: 192.168.0.210         # <-- Revise to match ipv4_address above)
+      VIRTUAL_HOST: pihole.bdura.me   # <-- Revise to match hostname + domainname)
+      WEBPASSWORD: ${WEBPASSWORD}                   # <-- Add password (if required)
+    restart: unless-stopped
+    volumes:
+      - pihole:/etc/pihole
+      - dnsmasq:/etc/dnsmasq.d
+      - pihole-html:/var/www/html/pihole
+
+
+volumes:
+  pihole:
+  dnsmasq:
+  pihole-html:
+
+
+networks:
+  pihole_network:
+    driver: macvlan
+    driver_opts:
+      parent: eth0
+    ipam:
+      config:
+        - subnet: 192.168.0.1/24            # <-- Revise 192.168.0.1 to match your gateway
+          gateway: 192.168.0.1              # <-- Revise 192.168.0.1 to match your gateway
+          ip_range: 192.168.0.211/29        # <-- Revise 192.168.0.X to match Ipv4 address (above) + 1. The 29 is number of ips reserved for DHCP (optional).
