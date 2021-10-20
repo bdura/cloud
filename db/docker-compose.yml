@@ -31,6 +31,13 @@ services:
       options:
         tag: "{{.Name}}"
 
+  redis:
+    image: redis:alpine
+    container_name: redis
+    restart: unless-stopped
+    volumes:
+      - redis:/var/lib/redis
+
 
 networks:
   default:
@@ -40,3 +47,4 @@ networks:
 volumes:
   postgresql:
   pgadmin:
+  redis:
