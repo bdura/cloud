@@ -1,4 +1,8 @@
-# Pi-Hole
+# Pihole
+
+Pihole is an ad-blocker that works by blocking advertisement-related DNS queries directly. That means that contrary to browser ad-blockers, your device **never actually receives any data from advertisement providers**, freeing your internet bandwidth.
+
+Any device connected to your router get ad-blocking for free !
 
 ## Setting up pihole
 
