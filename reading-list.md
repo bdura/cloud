@@ -42,6 +42,10 @@ Content :
 
 - [OpenHAB](https://ubuntu.com/appliance/openhab)
 
+## Coding
+
+- [VS Code Server](https://hub.docker.com/r/codercom/code-server) and the [great tutorial to use on iPad](https://coder.com/docs/code-server/v3.12.0/ipad).
+
 ## Network administration
 
 ### Ad blocking
