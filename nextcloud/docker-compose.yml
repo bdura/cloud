@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+
+  nextcloud:
+    image: nextcloud:stable-apache
+    container_name: nextcloud
+    restart: unless-stopped
+    volumes:
+      - /var/www/html
+      # - apps:/var/www/html/custom_apps
+      # - config:/var/www/html/config
+      # - data:/var/www/html/data
+    # env_file:
+    #   nextcloud.env
+    environment:
+      VIRTUAL_HOST: cloud.bdura.me
+      LETSENCRYPT_HOST: cloud.bdura.me
+      NEXTCLOUD_HOSTNAME: cloud.bdura.me
+    logging:
+      options:
+        tag: "{{.Name}}"
+
+
+networks:
+  default:
+    external:
+      name: nginx
