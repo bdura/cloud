@@ -20,6 +20,59 @@ WEBPASSWORD=secret
 
 I changed the DNS settings on my router to use `192.168.0.210`, as set in the [`docker-compose` configuration](docker-compose.yml#L21).
 
+## Setting up the host
+
+At this point, all your devices connected to the router should get ad-free name resolution !
+
+All your devices, except the host itself (ie your Raspberry Pi)... To resolve this issue, we will need to create a second `macvlan` network to enable connections between the host and the Pihole container.
+
+Following [Ivan Smirnov's insight](https://blog.ivansmirnov.name/set-up-pihole-using-docker-macvlan-network/), I created a `/usr/local/bin/pi-vlan.sh` script that runs at every reboot, and makes sure the network is correctly setup.
+
+The script :
+
+```shell
+#!/usr/bin/env bash
+ip link set eth0 promisc on
+ip link add macvlan-shim link eth0 type macvlan mode bridge
+ip addr add 192.168.0.42/28 dev macvlan-shim
+ip link set macvlan-shim up
+ip route add 192.168.0.210 dev macvlan-shim
+```
+
+This configuration "just works" with my setup. To be honest, this is black magic to me. Two notes :
+1. `192.168.0.42` is the reserved address of the Raspberry Pi on my local network.
+2. `192.168.0.210` is the address I attributed to the Pihole DNS container.
+
+You will need to create the script and make it executable :
+
+```shell
+sudo nano /usr/local/bin/pi-vlan.sh
+sudo chmod +x /usr/local/bin/pi-vlan.sh
+```
+
+Then configure a service :
+
+```shell
+# Add the file
+sudo nano /etc/systemd/system/pi-vlan.service
+
+# Register it
+sudo systemctl enable pi-vlan
+```
+
+With the following content :
+
+```
+[Unit]
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/pi-vlan.sh
+
+[Install]
+WantedBy=default.target
+```
+
 ## References
 
 On setting up Pihole itself :

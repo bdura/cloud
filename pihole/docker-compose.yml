@@ -17,7 +17,7 @@ services:
     cap_add:
       - NET_ADMIN
     networks:
-      pihole_network:
+      macvlan-pihole:
         ipv4_address: 192.168.0.210         # <-- Replace with an unused ip address on your network to assign to the Pi0hole instance (not ip address of the physical server)
     dns:
       - 127.0.0.1
@@ -48,12 +48,17 @@ volumes:
 
 
 networks:
-  pihole_network:
-    driver: macvlan
-    driver_opts:
-      parent: eth0
-    ipam:
-      config:
-        - subnet: 192.168.0.1/24            # <-- Revise 192.168.0.1 to match your gateway
-          gateway: 192.168.0.1              # <-- Revise 192.168.0.1 to match your gateway
-          ip_range: 192.168.0.211/29        # <-- Revise 192.168.0.X to match Ipv4 address (above) + 1. The 29 is number of ips reserved for DHCP (optional).
+  macvlan-pihole:
+    external: true
+
+
+# networks:
+#   pihole_network:
+#     driver: macvlan
+#     driver_opts:
+#       parent: eth0
+#     ipam:
+#       config:
+#         - subnet: 192.168.0.1/24            # <-- Revise 192.168.0.1 to match your gateway
+#           gateway: 192.168.0.1              # <-- Revise 192.168.0.1 to match your gateway
+#           ip_range: 192.168.0.211/29        # <-- Revise 192.168.0.X to match Ipv4 address (above) + 1. The 29 is number of ips reserved for DHCP (optional).
