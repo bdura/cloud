@@ -7,16 +7,18 @@ services:
     container_name: nextcloud
     restart: unless-stopped
     volumes:
-      - /var/www/html
-      # - apps:/var/www/html/custom_apps
-      # - config:/var/www/html/config
-      # - data:/var/www/html/data
-    # env_file:
-    #   nextcloud.env
+      - ./volumes/instance:/var/www/html
+      - ./volumes/apps:/var/www/html/custom_apps
+      - ./volumes/config:/var/www/html/config
+      - ./volumes/data:/var/www/html/data
+    env_file:
+      nextcloud.env
     environment:
       VIRTUAL_HOST: cloud.bdura.me
       LETSENCRYPT_HOST: cloud.bdura.me
       NEXTCLOUD_HOSTNAME: cloud.bdura.me
+      POSTGRES_HOST: database:5432
+      REDIS_HOST: redis
     logging:
       options:
         tag: "{{.Name}}"
