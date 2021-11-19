@@ -9,6 +9,7 @@ Content :
 - [Multimedia](#multimedia)
 - [Websites](#websites)
 - [Home automation](#home-automation)
+- [Coding](#coding)
 - [Network administration](#network-administration)
   - [Ad blocking](#ad-blocking)
 
@@ -20,7 +21,7 @@ Content :
 
 ### Emails
 
-- [Docker-Mailserver](https://github.com/docker-mailserver/docker-mailserver).Read the author's [manifesto](https://tvi.al/simple-mail-server-with-docker/
+- [Docker-Mailserver](https://github.com/docker-mailserver/docker-mailserver). Read the author's [manifesto](https://tvi.al/simple-mail-server-with-docker/
 
 ### Instant messaging
 

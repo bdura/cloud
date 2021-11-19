@@ -6,8 +6,6 @@ Any device connected to your router get ad-blocking for free !
 
 ## Setting up pihole
 
-To be honest, this is the black magic part.
-
 Since the whole point of this repository is to direct services through a single point of entry, we need to assign a separate IP address to the container that will be used as a DNS server on the network. It turns out Docker provides a `macvlan` driver, which "assign a MAC address to each container’s virtual network interface, making it appear to be a physical network interface directly connected to the physical network" (from the [Docker documentation](https://docs.docker.com/network/macvlan/)).
 
 The `docker-compose` file uses an environment file `.env`, that defines the `WEBPASSWORD` environment variable :

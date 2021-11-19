@@ -103,6 +103,21 @@ services:
       options:
         tag: "{{.Name}}"
 
+  # graphite:
+  #   image: graphiteapp/graphite-statsd:latest
+  #   container_name: graphite
+  #   restart: unless-stopped
+  #   ports:
+  #     - "2003:2003"
+  #     # - "2023-2024:2023-2024"
+  #     # - "8125:8125/udp"
+  #     # - "8126:8126"
+  #   volumes:
+  #     - graphite:/opt/graphite/storage
+  #   logging:
+  #     options:
+  #       tag: "{{.Name}}"
+
 
 networks:
   default:
@@ -113,3 +128,4 @@ volumes:
   portainer-data:
   loki:
   grafana:
+  # graphite:
