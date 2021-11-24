@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+
+  vscode:
+    image: codercom/code-server:latest
+    container_name: vscode
+    restart: unless-stopped
+    user: $UID:$GID
+    volumes:
+      - ./volumes/config:/home/coder/.config
+      - $HOME:/home/coder/project
+    environment:
+      VIRTUAL_HOST: vscode.bdura.me
+      LETSENCRYPT_HOST: vscode.bdura.me
+    logging:
+      options:
+        tag: "{{.Name}}"
+
+networks:
+  default:
+    external:
+      name: nginx
