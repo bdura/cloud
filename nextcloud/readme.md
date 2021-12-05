@@ -3,8 +3,8 @@
 ## Mounting a drive
 
 ```shell
-sudo mkdir -p /mnt/<name-of-mounted-drive>
-sudo mount sda1 /mnt/<name-of-mounted-drive>
+sudo mkdir -p /media/<name-of-mounted-drive>
+sudo mount /dev/sda2 /media/<name-of-mounted-drive>
 ```
 
 ## Environment variables
