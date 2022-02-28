@@ -2,20 +2,6 @@
 
 Although this guide was written with the specific case of a Raspberry Pi, it will work with any Linux server.
 
-Content :
-
-- [Creating a bootable USB](#creating-a-bootable-usb)
-- [Creating a user](#creating-a-user)
-- [Configuration](#configuration)
-  - [Install Zsh](#install-zsh)
-  - [Install oh-my-zsh](#install-oh-my-zsh)
-  - [Install Fira-Code](#install-fira-code)
-  - [Install spaceship-prompt](#install-spaceship-prompt)
-  - [Install micro](#install-micro)
-  - [Configure Zsh](#configure-zsh)
-- [Generate a SSH key](#generate-a-ssh-key)
-- [Docker](#docker)
-
 ## Creating a bootable USB
 
 Download a distribution image. Use [Balena-Etcher](https://www.balena.io/etcher/) or the [RaspberryPi Imager](https://www.raspberrypi.com/software/) to create a bootable USB.
@@ -74,12 +60,6 @@ Zsh is an alternative to Bash, and provides a myriad of bonuses. Follow the [ins
 
 oh-my-zsh is a package manager for Zsh. It can help you customize your shell with incredibly useful perks. Follow the [instructions](https://github.com/ohmyzsh/ohmyzsh#basic-installation).
 
-### Install Fira-Code
-
-Fira-Code is a coding font that works great with ligatures and special characters.
-
-Follow the [instructions](https://github.com/tonsky/FiraCode/wiki/Linux-instructions#installing-with-a-package-manager).
-
 ### Install spaceship-prompt
 
 There are other prompts out there, but Spaceship is a good way to start. Follow the [instructions](https://github.com/spaceship-prompt/spaceship-prompt#oh-my-zsh).
@@ -111,7 +91,7 @@ Modify you `.zshrc` to configure your new shell.
 .local/bin/micro .zshrc
 ```
 
-You may use this [configuration](./.zshrc). You'll need to install `zsh-syntax-highlighting` if you do (see [instructions](https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md#oh-my-zsh)).
+You may use this [configuration](https://github.com/bdura/cloud/blob/master/.zshrc). You'll need to install `zsh-syntax-highlighting` if you do (see [instructions](https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md#oh-my-zsh)).
 
 ## Generate a SSH key
 

@@ -1,6 +1,10 @@
 .vscode
 *.env
 
+.venv
+
+.DS_Store
+
 volumes/
 
 __pycache__/

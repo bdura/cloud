@@ -1,0 +1,31 @@
+site_name: Cloud
+repo_url: https://github.com/bdura/cloud
+
+theme:
+  name: material
+  features:
+    - navigation.tracking
+    - navigation.instant
+
+nav:
+  - index.md
+  - installation.md
+  - Topics:
+      - topics/proxy.md
+  - ip-address.md
+  - reading-list.md
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - footnotes
+
+plugins:
+  - search
+  - bibtex:
+      bib_file: "docs/references.bib"

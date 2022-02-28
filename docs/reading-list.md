@@ -1,18 +1,5 @@
 # Reading list
 
-Content :
-
-- [Administration](#administration)
-- [Messaging](#messaging)
-  - [Emails](#emails)
-  - [Instant messaging](#instant-messaging)
-- [Multimedia](#multimedia)
-- [Websites](#websites)
-- [Home automation](#home-automation)
-- [Coding](#coding)
-- [Network administration](#network-administration)
-  - [Ad blocking](#ad-blocking)
-
 ## Administration
 
 - ACME-companion
