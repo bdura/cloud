@@ -108,3 +108,4 @@ export PATH="$HOME/.local/bin:$PATH"
 # Example aliases
 alias zshconfig="micro ~/.zshrc"
 alias ohmyzsh="micro ~/.oh-my-zsh"
+alias dc="docker-compose"
