@@ -1,4 +1,4 @@
-site_name: Cloud
+site_name: Awesome
 repo_url: https://github.com/bdura/cloud
 
 theme:
@@ -6,14 +6,22 @@ theme:
   features:
     - navigation.tracking
     - navigation.instant
+    # - navigation.tabs
 
 nav:
   - index.md
-  - installation.md
-  - Topics:
-      - topics/proxy.md
-  - ip-address.md
-  - reading-list.md
+  - Python:
+    - python/index.md
+    - python/ide.md
+    - python/structure.md
+    - python/documentation.md
+  - Cloud:
+    - cloud/index.md
+    - cloud/installation.md
+    - cloud/proxy.md
+    - cloud/ip-address.md
+    - cloud/reading-list.md
+  - changelog.md
 
 markdown_extensions:
   - pymdownx.highlight:
