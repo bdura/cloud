@@ -1,0 +1,18 @@
+http:
+  routers:
+    http-catchall:
+      rule: HostRegexp(`{host:.+}`)
+      middlewares:
+        - https-redirect
+      entryPoints:
+        - http
+      service: noop@internal
+
+  middlewares:
+    https-redirect:
+      redirectScheme:
+        scheme: https
+        permanent: true
+    admin-auth:
+      basicAuth:
+        usersFile: /etc/traefik/config/admin-auth.txt

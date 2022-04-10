@@ -23,6 +23,8 @@ services:
     container_name: grafana
     volumes:
       - grafana:/var/lib/grafana
+    env_file:
+      - grafana.env
     environment:
       GF_INSTALL_PLUGINS: grafana-clock-panel,grafana-simple-json-datasource
       VIRTUAL_HOST: grafana.bdura.me
