@@ -1,4 +1,4 @@
-site_name: Awesome
+site_name: How-to
 repo_url: https://github.com/bdura/cloud
 
 theme:
@@ -13,8 +13,8 @@ theme:
         icon: material/brightness-7
         name: Switch to light mode
 
-  # logo: assets/logo/awesome.svg
-  # favicon: assets/logo/awesome.svg
+  logo: https://raw.githubusercontent.com/sindresorhus/awesome/main/media/logo.svg
+  favicon: https://raw.githubusercontent.com/sindresorhus/awesome/main/media/logo.svg
   features:
     - navigation.tracking
     - navigation.instant
@@ -24,13 +24,21 @@ theme:
     - content.code.annotate
 
 nav:
-  - index.md
+  - Home:
+    - index.md
   - Python:
     - python/index.md
     - python/awesome.md
     - IDE: python/ide.md
     - python/structure.md
     - python/documentation.md
+    - python/configuration.md
+    - python/reproducibility.md
+  - Web:
+    - web/index.md
+    - web/streamlit.md
+    - web/fastapi.md
+    - web/nuxtjs.md
   - Cloud:
     - cloud/index.md
     - cloud/installation.md
