@@ -26,10 +26,14 @@ theme:
 nav:
   - Home:
     - index.md
+  - Environment:
+    - environment/index.md
+    - IDE: environment/ide.md
+    - environment/zsh.md
+    - environment/git.md
   - Python:
     - python/index.md
     - python/awesome.md
-    - IDE: python/ide.md
     - python/structure.md
     - python/documentation.md
     - python/configuration.md
