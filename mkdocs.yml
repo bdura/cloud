@@ -3,16 +3,32 @@ repo_url: https://github.com/bdura/cloud
 
 theme:
   name: material
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/brightness-4
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-7
+        name: Switch to light mode
+
+  # logo: assets/logo/awesome.svg
+  # favicon: assets/logo/awesome.svg
   features:
     - navigation.tracking
     - navigation.instant
-    # - navigation.tabs
+    - navigation.indexes
+    - navigation.tabs
+    - navigation.top
+    - content.code.annotate
 
 nav:
   - index.md
   - Python:
     - python/index.md
-    - python/ide.md
+    - python/awesome.md
+    - IDE: python/ide.md
     - python/structure.md
     - python/documentation.md
   - Cloud:
@@ -21,7 +37,9 @@ nav:
     - cloud/proxy.md
     - cloud/ip-address.md
     - cloud/reading-list.md
-  - changelog.md
+  - Development:
+    - development/index.md
+    - development/changelog.md
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -33,7 +51,20 @@ markdown_extensions:
   - pymdownx.details
   - footnotes
 
+extra_css:
+  - assets/extra.css
+  - assets/termynal/termynal.css
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/vega@5
+  - https://cdn.jsdelivr.net/npm/vega-lite@5
+  - https://cdn.jsdelivr.net/npm/vega-embed@6
+  - assets/termynal/termynal.js
+
 plugins:
   - search
   - bibtex:
       bib_file: "docs/references.bib"
+  - gen-files:
+      scripts:
+        - docs/scripts/generate_development.py
