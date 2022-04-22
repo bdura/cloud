@@ -45,13 +45,28 @@ Type-hint-powered CLI for Python. A must-have.
 
 ### [Pytest](https://docs.pytest.org/)
 
+Pytest is a great library for testing Python code.
+You really should test your code, and start doing so from day one...
+You risk letting the workload overrun if you wait too long,
+testing legacy code is a hassle.
+
+With a well defined test-suite, you can refactor your code without having
+to worry that everything works: you know it does once the tests pass.
+
 ### [Hypothesis](https://hypothesis.readthedocs.io/)
+
+Hypothesis works with Pytest to automate unit-testing with random examples.
 
 ## Versioning
 
 ### [Conventional commits](https://www.conventionalcommits.org/)
 
+Use conventional commits if you can, it make your git logs much more readable
+and human (as well as machine) friendly.
+
 ### Semantic Versioning
+
+Use semantic versioning for your libraries.
 
 ### [Poetry](https://python-poetry.org/)
 
@@ -72,6 +87,8 @@ A most simple logging library. Removes some of the hassle of using the standard 
 ## Coding with style
 
 ### [Google's style guide](https://google.github.io/styleguide/pyguide.html)
+
+Take a look at this great style guide, it goes over many patterns.
 
 ### [Black](https://github.com/psf/black)
 
@@ -109,47 +126,3 @@ Python types, explained.
 ### [MkDocs](https://squidfunk.github.io/mkdocs-material/)
 
 Write beautiful and modern documentations. See EDS-NLP's [documentation](https://aphp.github.io/edsnlp/latest/) and [configuration](https://github.com/aphp/edsnlp/blob/master/mkdocs.yml) for inspiration.
-
-### [Sphinx](https://www.sphinx-doc.org/)
-
-Handles the creation of the documentation.
-
-A few extensions to simplify your life:
-
-- [Sphinx Autobuild](https://github.com/executablebooks/sphinx-autobuild), for watching the codebase and rebuilding the documentation on every change, for faster development.
-
-- [nbsphinx](https://nbsphinx.readthedocs.io/en/0.8.8/), for parsing jupyter notebooks within the documentation.
-
-- [sphinxcontrib-bibtex](https://sphinxcontrib-bibtex.readthedocs.io/en/latest/), for citing academic work.
-
-- [MyST](https://myst-parser.readthedocs.io/), for writing the documentation in markdown.
-
-## Private PyPI
-
-You can use Gitlab as a private registry, but you'll need to add the registry's URL to your pip configuration, as well as add the credentials.
-
-### Configuring PIP
-
-Add a `~/.config/pip/pip.conf` file, and add your project's registry URL:
-
-```toml title="~/.config/pip/pip.conf"
-[global]
-extra-index-url = https://gitlab.eds.aphp.fr/api/v4/projects/<PROJECT-ID1>/packages/pypi/simple
-                  https://gitlab.eds.aphp.fr/api/v4/projects/<PROJECT-ID2>/packages/pypi/simple
-```
-
-Pip will read from the list of registry you provided every time you try to install a package.
-
-### Adding your credentials
-
-First, [create a personal access token from Gitlab](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html). You'll need `read_api` privileges.
-
-Then, create a `~/.netrc` file:
-
-```title="~/.netrc"
-machine gitlab.eds.aphp.fr
-    login __token__
-    password <TOKEN>
-```
-
-Pip reads from this file to get your credentials.

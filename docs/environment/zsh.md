@@ -14,6 +14,8 @@ There are other prompts out there, but Spaceship is a good way to start. Follow 
 
 ## Configuring your shell
 
+The following `.zshrc` should be a good place to start.
+
 ```shell
 --8<-- ".zshrc"
 ```
