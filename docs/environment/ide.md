@@ -10,8 +10,8 @@ Make sure to activate auto-saving. Go to `Settings` and search for `auto save` a
 
 !!! note "Installing extensions"
 
-    To install an extension in VS Code, just go to to the extensions pannel (should be the last button on the left of your VS Code window),
-    just search for an extension, and click "Install".
+    To install an extension in VS Code, just go to to the extensions panel (should be the last button on the left of your VS Code window),
+    search for an extension, and click "Install". See the [official instructions](https://code.visualstudio.com/docs/editor/extension-marketplace).
 
 A few extensions that will help you code faster than ever:
 
