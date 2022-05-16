@@ -29,8 +29,8 @@ nav:
   - Environment:
     - environment/index.md
     - IDE: environment/ide.md
-    - environment/zsh.md
     - environment/git.md
+    - environment/zsh.md
   - Python:
     - python/index.md
     - python/awesome.md

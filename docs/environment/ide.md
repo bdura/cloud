@@ -4,11 +4,19 @@ A good Integrated Development Environment (IDE) is important. I've used two: PyC
 
 I would advise to use [VS Code](https://code.visualstudio.com/). It is lightweight, fast, ships with a load of incredible goodies and has an extension for about everything.
 
-Make sure to activate auto-formatting and auto-saving.
+Make sure to activate auto-saving. Go to `Settings` and search for `auto save` and select `afterDelay`.
+
+## Extensions
+
+!!! note "Installing extensions"
+
+    To install an extension in VS Code, just go to to the extensions pannel (should be the last button on the left of your VS Code window),
+    just search for an extension, and click "Install".
 
 A few extensions that will help you code faster than ever:
 
 - [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance) and [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python): a language server for Python
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode): a great code formatter
 - [Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter): Jupyter support within VS Code
 - [Gitlens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens): Git supercharged
 - [Auto docstrings](https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring): automatically generate docstrings.
