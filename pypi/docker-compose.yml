@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+
+  pypi:
+    image: pypiserver/pypiserver:latest
+    restart: unless-stopped
+    networks:
+      - traefik-public
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=traefik-public
+      - traefik.constraint-label=traefik-public
+      - traefik.http.routers.registry.rule=Host(`pypi.bdura.me`)
+      - traefik.http.routers.registry.entrypoints=https
+      - traefik.http.routers.registry.tls=true
+      - traefik.http.routers.registry.tls.certresolver=letsencrypt
+      - traefik.http.routers.registry.middlewares=admin-auth@file
+      - traefik.http.services.registry.loadbalancer.server.port=8080
+
+
+networks:
+  traefik-public:
+    external: true
