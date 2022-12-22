@@ -18,7 +18,3 @@ network:
           # I just copied this from the router...
           - 8.8.8.8
 ```
-
-## References
-
-\bibliography

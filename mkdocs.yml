@@ -1,19 +1,57 @@
-site_name: Cloud
+site_name: How-to
 repo_url: https://github.com/bdura/cloud
 
 theme:
   name: material
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/brightness-4
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-7
+        name: Switch to light mode
+
+  logo: https://raw.githubusercontent.com/sindresorhus/awesome/main/media/logo.svg
+  favicon: https://raw.githubusercontent.com/sindresorhus/awesome/main/media/logo.svg
   features:
     - navigation.tracking
     - navigation.instant
+    - navigation.indexes
+    - navigation.tabs
+    - navigation.top
+    - content.code.annotate
 
 nav:
-  - index.md
-  - installation.md
-  - Topics:
-      - topics/proxy.md
-  - ip-address.md
-  - reading-list.md
+  - Home:
+    - index.md
+  - Environment:
+    - environment/index.md
+    - IDE: environment/ide.md
+    - environment/git.md
+    - environment/zsh.md
+  - Python:
+    - python/index.md
+    - python/awesome.md
+    - python/structure.md
+    - python/documentation.md
+    - python/configuration.md
+    - python/reproducibility.md
+  - Web:
+    - web/index.md
+    - web/streamlit.md
+    - web/fastapi.md
+    - web/nuxtjs.md
+  - Cloud:
+    - cloud/index.md
+    - cloud/installation.md
+    - cloud/proxy.md
+    - cloud/ip-address.md
+    - cloud/reading-list.md
+  - Development:
+    - development/index.md
+    - development/changelog.md
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -25,7 +63,20 @@ markdown_extensions:
   - pymdownx.details
   - footnotes
 
+extra_css:
+  - assets/extra.css
+  - assets/termynal/termynal.css
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/vega@5
+  - https://cdn.jsdelivr.net/npm/vega-lite@5
+  - https://cdn.jsdelivr.net/npm/vega-embed@6
+  - assets/termynal/termynal.js
+
 plugins:
   - search
   - bibtex:
       bib_file: "docs/references.bib"
+  - gen-files:
+      scripts:
+        - docs/scripts/generate_development.py
