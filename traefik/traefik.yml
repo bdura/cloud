@@ -34,6 +34,6 @@ entryPoints:
 certificatesResolvers:
   letsencrypt:
     acme:
-      email: "basile@bdura.me"
+      email: "basile+letsencrypt@bdura.me"
       storage: "/certificates/acme.json"
       tlsChallenge: {}
