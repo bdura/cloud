@@ -8,16 +8,21 @@ services:
     restart: unless-stopped
     user: $UID:$GID
     volumes:
-      - ./volumes/config:/home/coder/.config
+      - ./config:/home/coder/.config
       - $HOME:/home/coder/project
-    environment:
-      VIRTUAL_HOST: vscode.bdura.me
-      LETSENCRYPT_HOST: vscode.bdura.me
-    logging:
-      options:
-        tag: "{{.Name}}"
+    networks:
+      - traefik-public
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=traefik-public
+      - traefik.constraint-label=traefik-public
+      - traefik.http.routers.vscode.rule=Host(`vscode.bdura.me`)
+      - traefik.http.routers.vscode.entrypoints=https
+      - traefik.http.routers.vscode.tls=true
+      - traefik.http.routers.vscode.tls.certresolver=letsencrypt
 
 networks:
-  default:
-    external:
-      name: nginx
+  # Use the previously created public network "traefik-public", shared with other
+  # services that need to be publicly available via this Traefik
+  traefik-public:
+    external: true
