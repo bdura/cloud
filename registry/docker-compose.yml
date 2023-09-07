@@ -5,8 +5,12 @@ services:
   registry:
     image: registry:2
     restart: unless-stopped
+    volumes:
+      - ./data:/var/lib/registry
     networks:
       - traefik-public
+    ports:
+      - 5000:5000
     labels:
       - traefik.enable=true
       - traefik.docker.network=traefik-public
@@ -15,9 +19,8 @@ services:
       - traefik.http.routers.registry.entrypoints=https
       - traefik.http.routers.registry.tls=true
       - traefik.http.routers.registry.tls.certresolver=letsencrypt
-      - traefik.http.routers.registry.middlewares=admin-auth@file
+      - traefik.http.routers.registry.middlewares=registry-auth@file
       - traefik.http.services.registry.loadbalancer.server.port=5000
-
 
 networks:
   traefik-public:

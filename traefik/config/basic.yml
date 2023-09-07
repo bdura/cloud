@@ -16,3 +16,6 @@ http:
     admin-auth:
       basicAuth:
         usersFile: /etc/traefik/config/admin-auth.txt
+    registry-auth:
+      basicAuth:
+        usersFile: /etc/traefik/config/registry-auth.txt

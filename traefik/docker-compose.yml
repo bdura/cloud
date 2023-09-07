@@ -69,6 +69,7 @@ volumes:
   # the HTTPS certificates
   traefik-public-certificates:
 
+
 networks:
   # Use the previously created public network "traefik-public", shared with other
   # services that need to be publicly available via this Traefik
